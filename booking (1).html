@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Cleaning — Curb Fresh</title>
+<meta name="description" content="Request your trash can, driveway, or porch cleaning from Curb Fresh in Los Gatos. Pick your services and preferred times.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#1E2422;
+    --charcoal-soft:#2B3230;
+    --fresh:#FAF9F4;
+    --teal:#0E7A82;
+    --teal-deep:#0A5C63;
+    --lime:#C7DB3A;
+    --concrete:#A79E90;
+    --concrete-light:#EDE9E0;
+    --font-display:'Big Shoulders Display', sans-serif;
+    --font-body:'Manrope', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:var(--font-body);
+    background:var(--concrete-light);
+    color:var(--charcoal);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  :focus-visible{outline:3px solid var(--teal); outline-offset:2px;}
+  .wrap{max-width:640px; margin:0 auto; padding:0 20px;}
+  h1,h2,h3{font-family:var(--font-display); text-transform:uppercase; letter-spacing:0.01em; line-height:0.98;}
+
+  header.top{padding:36px 0 8px; text-align:center;}
+  .brand{
+    font-family:var(--font-display); font-weight:800; font-size:24px;
+    text-transform:uppercase; letter-spacing:0.02em;
+    display:inline-flex; align-items:center; gap:9px; text-decoration:none; color:var(--charcoal);
+  }
+  .brand .dot{width:9px; height:9px; border-radius:50%; background:var(--lime);}
+  .back-link{
+    display:inline-block; margin-top:10px; font-size:13.5px; color:var(--charcoal-soft);
+    text-decoration:none;
+  }
+  .back-link:hover{color:var(--teal-deep);}
+
+  .hero{text-align:center; padding:32px 0 40px;}
+  .eyebrow{
+    display:inline-block; color:var(--teal-deep); font-weight:800; font-size:13px;
+    letter-spacing:0.16em; text-transform:uppercase; margin-bottom:14px;
+  }
+  .hero h1{font-size:clamp(34px,7vw,48px); font-weight:900;}
+  .hero p{color:var(--charcoal-soft); font-size:15.5px; max-width:46ch; margin:14px auto 0;}
+  .trust-line{
+    display:inline-flex; align-items:center; gap:7px; margin-top:16px;
+    color:var(--teal-deep); font-size:13px; font-weight:700;
+  }
+  .trust-line svg{width:15px; height:15px; stroke:var(--teal-deep); fill:none; flex-shrink:0;}
+
+  .guarantee-note{
+    display:flex; align-items:flex-start; gap:12px;
+    background:var(--concrete-light); border-radius:12px; padding:16px 18px;
+    margin-bottom:26px;
+  }
+  .guarantee-note svg{width:22px; height:22px; stroke:var(--teal-deep); fill:none; flex-shrink:0; margin-top:1px;}
+  .guarantee-note strong{display:block; font-size:14px; margin-bottom:2px;}
+  .guarantee-note span{font-size:13.5px; color:var(--charcoal-soft);}
+
+  .footer-links{display:flex; justify-content:center; gap:18px; margin-top:8px;}
+  .footer-links a{text-decoration:none; color:var(--charcoal-soft);}
+  .footer-links a:hover{color:var(--teal-deep);}
+
+  .panel{
+    background:var(--fresh); border:1px solid rgba(30,36,34,0.08); border-radius:20px;
+    padding:36px 30px 30px; margin-bottom:56px;
+    box-shadow:0 30px 60px -30px rgba(30,36,34,0.3);
+  }
+
+  .field{margin-bottom:18px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .field label{
+    display:block; font-size:12.5px; font-weight:700; text-transform:uppercase;
+    letter-spacing:0.05em; color:var(--charcoal-soft); margin-bottom:8px;
+  }
+  .field input[type=text],
+  .field input[type=tel],
+  .field input[type=email],
+  .field textarea,
+  .field select{
+    width:100%; border:1.5px solid rgba(30,36,34,0.18); border-radius:10px;
+    padding:12px 14px; font-family:var(--font-body); font-size:15px;
+    background:#fff; color:var(--charcoal);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--teal);}
+  .field textarea{resize:vertical; min-height:80px;}
+
+  .checkbox-group{display:flex; flex-wrap:wrap; gap:10px;}
+  .checkbox-group label{
+    display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600;
+    background:var(--concrete-light); padding:9px 14px; border-radius:999px; cursor:pointer;
+    text-transform:none; letter-spacing:0;
+  }
+  .checkbox-group input{accent-color:var(--teal);}
+
+  .slot-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;}
+  .hint{font-size:12.5px; color:var(--charcoal-soft); margin-top:6px;}
+
+  .submit-btn{
+    width:100%; background:var(--charcoal); color:#fff; border:none;
+    padding:16px; border-radius:10px; font-weight:700; font-size:15px;
+    text-transform:uppercase; letter-spacing:0.04em; cursor:pointer;
+    transition:background .2s ease; font-family:var(--font-body);
+  }
+  .submit-btn:hover{background:var(--teal-deep);}
+  .form-note{font-size:12.5px; color:var(--charcoal-soft); margin-top:14px; text-align:center;}
+
+  .info-strip{
+    display:flex; justify-content:center; gap:26px; flex-wrap:wrap;
+    padding-bottom:60px; text-align:center;
+  }
+  .info-strip div{font-size:13px; color:var(--charcoal-soft);}
+  .info-strip strong{display:block; color:var(--charcoal); font-size:14.5px; margin-bottom:2px;}
+
+  footer{
+    border-top:1px solid rgba(30,36,34,0.08); padding:24px 0 40px;
+    text-align:center; color:var(--charcoal-soft); font-size:12.5px;
+  }
+
+  @media (max-width:560px){
+    .form-row{grid-template-columns:1fr;}
+    .slot-grid{grid-template-columns:1fr;}
+    .info-strip{flex-direction:column; gap:14px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top wrap">
+  <a href="index.html" class="brand"><span class="dot"></span>Curb&nbsp;Fresh</a><br>
+  <a href="index.html" class="back-link">&larr; Back to main site</a>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <span class="eyebrow">Request Your Cleaning</span>
+    <h1>Book in under a minute</h1>
+    <p>Tell us what needs cleaning and when works for you. We'll follow up to confirm your exact price and appointment.</p>
+    <div class="trust-line">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      Serving Los Gatos &amp; Surrounding Areas (within 10 miles)
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="guarantee-note">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+      <div>
+        <strong>100% Satisfaction Guarantee</strong>
+        <span>If your cans, driveway, or porch aren't spotless, we'll re-clean for free.</span>
+      </div>
+    </div>
+    <form action="https://formsubmit.co/curbfresh111@gmail.com" method="POST">
+      <!-- The first submission will send curbfresh111@gmail.com a one-time confirmation
+           link from FormSubmit — click it once, and every booking request after that
+           lands straight in the inbox automatically. No account or paid platform needed. -->
+      <input type="hidden" name="_subject" value="New Curb Fresh booking request">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none">
+
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="Full Name" placeholder="Jamie Rivera" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="Phone Number" placeholder="(555) 123-4567" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="Email Address" placeholder="you@email.com" required>
+      </div>
+
+      <div class="field">
+        <label for="address">Service Address</label>
+        <input type="text" id="address" name="Service Address" placeholder="Street, Los Gatos, CA, ZIP" required>
+      </div>
+
+      <div class="field">
+        <label>Services Needed</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="Services" value="Driveway Cleaning"> Driveway Cleaning</label>
+          <label><input type="checkbox" name="Services" value="Porch Cleaning"> Porch Cleaning</label>
+          <label><input type="checkbox" name="Services" value="Trash Can Cleaning"> Trash Can Cleaning</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="plan">Can Cleaning Plan (if applicable)</label>
+          <select id="plan" name="Can Cleaning Plan">
+            <option value="">N/A</option>
+            <option>Monthly — $20/mo</option>
+            <option>Quarterly — $35/clean</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cans"># of Trash Cans (if applicable)</label>
+          <select id="cans" name="Number of Cans">
+            <option value="">N/A</option>
+            <option>1 can</option>
+            <option>2 cans (included)</option>
+            <option>3 cans</option>
+            <option>4 cans</option>
+            <option>5+ cans</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Preferred Time Slots</label>
+        <div class="slot-grid">
+          <input type="text" name="Preferred Slot 1" placeholder="Option 1" required>
+          <input type="text" name="Preferred Slot 2" placeholder="Option 2" required>
+          <input type="text" name="Preferred Slot 3" placeholder="Option 3" required>
+        </div>
+        <p class="hint">Weekends, 11am–8pm preferred. Weekday slots can be arranged if needed.</p>
+      </div>
+
+      <div class="field">
+        <label for="notes">Anything else we should know?</label>
+        <textarea id="notes" name="Notes" placeholder="Size of area, stains, access notes, etc."></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Request My Cleaning</button>
+      <p class="form-note">We'll reply by phone or email to confirm your exact price and time. No payment due until after the job is done.</p>
+    </form>
+  </div>
+
+  <div class="info-strip">
+    <div><strong>(408) 721-9282</strong>Call or text</div>
+    <div><strong>curbfresh111@gmail.com</strong>Email us</div>
+    <div><strong>Los Gatos, CA</strong>Where we clean</div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; <span id="year"></span> Curb Fresh. All rights reserved.
+  <div class="footer-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
